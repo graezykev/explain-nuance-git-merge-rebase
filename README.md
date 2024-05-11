@@ -13,7 +13,7 @@ Create a file.
 
  ```sh
 touch example.txt
-```
+ ```
 
 ### Commit `A`
 
@@ -68,7 +68,7 @@ Initial content
 
 ### Commit `C`
 
-During his development, another developer (or myself) merged his feature to the branch `main`, with a commit `C` .
+During his development, another developer (or myself) merged his feature to branch `main`, with a commit `C` .
 
 ```sh
 git checkout main
@@ -179,9 +179,9 @@ A---B---C---M [main]
 
 ## Option 2: Rebase `feature` onto `main`
 
-> Before continuing the rebase process, **Re-do** the Scenario Setup in another Git repo
+> Before continuing the rebase process, **Re-do** the **Scenario Setup** with another Git repo
 
-This is our initial commit graph.
+the **Scenario Setup**, our initial commit graph looks as this.
 
 ```css
 A---B---C [main]
@@ -189,7 +189,7 @@ A---B---C [main]
       D [feature]
 ```
 
-Take a look at the commit `D`'s commit ID (hash) `89ccb71` on brach `feature`.
+Take a look at the commit `D`'s commit ID (hash) `89ccb71` on branch `feature`.
 
 <img alt="" src="image-10.png" width="250" />
 
@@ -201,7 +201,7 @@ Initial content
 +Modified by feature
 ```
 
-The commit ID and changes are going to be changed after rebase, we'll see why.
+The commit ID and changes are going to be changed after the rebase, we'll see why.
 
 Now let's start the **Rebase**.
 
@@ -248,7 +248,7 @@ Could not apply 89ccb71... D
 
 It tells us to **Resolve all conflicts manually**, and continue with `git rebase --continue`.
 
-OK let's follow the guide to resolve the conflict (also by "Accept Incoming Chage").
+OK let's follow the guide to resolve the conflict (also by "Accept Incoming Change").
 
 <img alt="fix git rebase conflict and commit" src="rebase-c-2.gif" width="600"/>
 
@@ -271,9 +271,9 @@ D
 #
 ```
 
-Here Git offers me a editor to edit the commit message of `D`.
+Here Git offers me an editor to edit the commit message of `D`.
 
-I can make no chage and just leave it.
+I can make no change and just leave it.
 
 Now the rebase has finished, take a look at the commit history of `feature`.
 
@@ -283,7 +283,7 @@ And the commit ID of `D`.
 
 <img alt="" src="image-12.png" width="250" />
 
-It's `d512c2f`, remember what was it before rebase? It was `89ccb71`.
+It's `d512c2f`, remember what was it before the rebase? It was `89ccb71`.
 
 And the changes of this commit.
 
@@ -295,7 +295,7 @@ Initial content
 
 See? The changes are also different to the previous commit `D`, because the commit `D` was **rewritten** in rebase.
 
-> Actually the commit message could also has been modify as well, in the commit editor we saw after ``git rebase --continue`.
+> Actually the commit message could also have been modified as well, in the commit editor we saw after ``git rebase --continue`.
 
 ### Graph After Rebase
 
@@ -307,12 +307,12 @@ A---B---C [main]
 
 In this case, we did a "**History Rewrite**", after which `D` disappears and the new `D'` comes out.
 
-This is a typical evidence of **why Git Rebase can be Dangerous**.
+This is typical evidence of **why Git Rebase can be Dangerous**.
 
 ## Conclusion: Nuance
 
-After fix the conflicts:
+After fixing the conflicts:
 
-- `Merge`: You need to make a **new commit** indicating how you solve the conflicts, from which your teammates can straightforwardly see how you did that.
+- `Merge`: You need to make a **new commit** indicating how you solved the conflicts, from which your teammates can straightforwardly see how you did that.
 
 - `Rebase`: You **modify the existent commit**, in this modified commit your teammates may see how you solve the conflicts.
