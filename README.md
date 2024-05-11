@@ -1,12 +1,23 @@
-I skip the initial of the Git repository because that is sort of petty, I just assume we have a repo with a `main` brach and without any commit.
-
 ## Scenario Setup
 
-Creat a file `example.txt`.
+Initiate a Git repository, as well as a `main` branch.
+
+```sh
+mkdir git-nuance-merge && \
+cd git-nuance-merge && \
+git init && \
+git branch -M main
+```
+
+Create a file.
+
+ ```sh
+touch example.txt
+```
 
 ### Commit `A`
 
-input the first line into `example.txt`
+Input a first line into `example.txt`
 
 ```diff
 +Initial content
@@ -14,11 +25,11 @@ input the first line into `example.txt`
 
 And then make a commit of 'A'.
 
-![alt text](image-1.png)
+<img alt="" src="image-1.png" width="500" />
 
 ### Commit `B`
 
-input the second line into `example.txt`
+Input a second line into `example.txt`
 
 ```diff
 Initial content
@@ -27,11 +38,11 @@ Initial content
 
 And then make a commit of 'B'.
 
-![alt text](image-2.png)
+<img alt="" src="image-2.png" width="500" />
 
-### Initial Commit Graph
+### Bseline Commit Graph
 
-Here's the commit graph by now.
+Here's the commit graph now, imagine it as the project baseline.
 
 ```css
 A---B [main]
@@ -39,13 +50,13 @@ A---B [main]
 
 ### Commit `D`
 
-Create a new branch `feature` based on `main`.
+Let's say one of the developers (or myself) needs to develop a new feature, he creates a new branch `feature` based on `main`.
 
 ```sh
 git checkout -b feature
 ```
 
-Make some change to the second line.
+And makes some changes to the second line.
 
 ```diff
 Initial content
@@ -53,17 +64,17 @@ Initial content
 +Modified by feature
 ```
 
-![alt text](image-3.png)
+<img alt="" src="image-3.png" width="500" />
 
 ### Commit `C`
 
-Get back to branch `main`.
+During his development, another developer (or myself) merged his feature to the branch `main`, with a commit `C` .
 
 ```sh
 git checkout main
 ```
 
-And Make some change to the second line too.
+In this commit he also made some changes to the second line.
 
 ```diff
 Initial content
@@ -71,11 +82,19 @@ Initial content
 +Modified by main
 ```
 
-![alt text](image.png)
+<img alt="" src="image.png" width="500" />
 
-### Initial Git Commit Status
+### Initial Git Commit Graph
 
-Here is what we've done by now on branch `main` and `feature`.
+Simply put the two guys's commits above into this graph:
+
+```css
+A---B---C [main]
+     \
+      D [feature]
+```
+
+Here are the **Git Histories** on branch `main` and `feature` respectively.
 
 - Git Logs on `main`
 
@@ -85,20 +104,12 @@ Here is what we've done by now on branch `main` and `feature`.
 
   <img alt="" src="image-5.png" width="200" />
 
-Simply put them into this graph:
-
-```css
-A---B---C [main]
-     \
-      D [feature]
-```
-
 Imagine we need to release the features in brach `feature`, we have 2 options:
 
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release.
 
-Next, we're going to make the 2 options respectively, and find out what are the difference consequences of them.
+Next, we're going to make the 2 options respectively, and find out what are the different consequences of them.
 
 ## Option 1: Merge `feature` into `main`
 
@@ -110,11 +121,11 @@ git checkout main
 git merge feature
 ```
 
-![alt text](merge-c.gif)
+<img alt="" src="merge-c.gif" width="600" />
 
-Here's the confict
+Here's the confict (in line 2).
 
-![alt text](image-6.png)
+<img alt="" src="image-6.png" width="600" />
 
 ```txt
 Initial content
@@ -125,7 +136,7 @@ Modified by feature
 >>>>>>> feature
 ```
 
-And take notes on the console
+And take notes on the console.
 
 ```console
 ➜  git-nuance-merge git:(main) git merge feature
@@ -140,7 +151,7 @@ It tells us to both **Fix** and **Commit** so that the conficts can be resolved.
 
 Let's do it by "Accept Incoming Chage", which in this case means accepting `feature` brach's change.
 
-![fix git merge conflict and commit](merge-c-2.gif)
+<img alt="fix git merge conflict and commit" src="merge-c-2.gif" width="600" />
 
 Did you notice the new commit in the Git Logs of `main`?
 
@@ -164,11 +175,13 @@ A---B---C---M [main]
       D [feature]
 ```
 
-> `M` is the new (Merge) commit after fixing conflict
+> `M` represents the new (Merge) commit (after fixing conflict)
 
 ## Option 2: Rebase `feature` onto `main`
 
-### Re-do the Scenario Setup in another Git repo and return to our initial commit graph
+> Before continuing the rebase process, **Re-do** the Scenario Setup in another Git repo
+
+This is our initial commit graph.
 
 ```css
 A---B---C [main]
@@ -176,7 +189,7 @@ A---B---C [main]
       D [feature]
 ```
 
-And before continuing the rebase process, take a look at the commit `D`'s commit ID (hash) `89ccb71` on brach `feature`.
+Take a look at the commit `D`'s commit ID (hash) `89ccb71` on brach `feature`.
 
 <img alt="" src="image-10.png" width="250" />
 
@@ -204,11 +217,11 @@ Rebase it onto `main`.
 git rebase base
 ```
 
-![alt text](rebase-c.gif)
+<img alt="" src="rebase-c.gif" width="600"/>
 
 Here's the confict
 
-![alt text](image-9.png)
+<img alt="" src="image-9.png" width="600"/>
 
 ```txt
 Initial content
@@ -237,7 +250,7 @@ It tells us to **Resolve all conflicts manually**, and continue with `git rebase
 
 OK let's follow the guide to resolve the conflict (also by "Accept Incoming Chage").
 
-![fix git rebase conflict and commit](rebase-c-2.gif)
+<img alt="fix git rebase conflict and commit" src="rebase-c-2.gif" width="600"/>
 
 Take some insight into the content after I run `git rebase --continue`.
 
