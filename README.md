@@ -280,7 +280,9 @@ Initial content
 +Modified by feature
 ```
 
-See? The changes are also different to the previous commit `D`.
+See? The changes are also different to the previous commit `D`, because the commit `D` was **rewritten** in rebase.
+
+> Actually the commit message could also has been modify as well, in the commit editor we saw after ``git rebase --continue`.
 
 ### Graph After Rebase
 
@@ -290,7 +292,11 @@ A---B---C [main]
           D' [feature]
 ```
 
-## Nuance
+In this case, we did a "**History Rewrite**", after which `D` disappears and the new `D'` comes out.
+
+This is a typical evidence of **why Git Rebase can be Dangerous**.
+
+## Conclusion: Nuance
 
 After fix the conflicts:
 
