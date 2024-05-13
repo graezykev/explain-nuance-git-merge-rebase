@@ -277,15 +277,15 @@ D
 #
 ```
 
-Here Git offers me an editor to edit the commit message of `D`.
+Here Git offers me an editor to edit the commit message of `D`, you can rewrite the commit `D` by editing the message (lines start with `#` will be ignored).
 
-I can make no change and just leave it.
+I made no change and just close the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
 
 Now the rebase has finished, take a look at the commit history of branch `feature`.
 
 <img alt="" src="image-11.png" width="500" />
 
-Pay special attention to the commit ID of `D`.
+Pay special attention to the commit ID of `D` (new `D`).
 
 It's now `047c348...`, remember what was it before the rebase? It was `58beb1e...`.
 
@@ -299,7 +299,7 @@ Initial content
 +Modified by Kev
 ```
 
-See? The changes are also different to the previous commit `D`, because the commit `D` was **rewritten** in rebase.
+See? The changes are also different to the previous commit `D`, because the commit `D` was **rewritten** in the rebase process.
 
 > Actually the commit message could also have been modified as well, in the commit editor we saw after ``git rebase --continue`.
 
@@ -311,9 +311,11 @@ A---B---C [main]
           D' [feature]
 ```
 
-In this case, we did a "**History Rewrite**", after which `D` disappears and the new `D'` comes out.
+In this case, we did a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
 
-This is typical evidence of **why Git Rebase can be Dangerous**.
+This is typical evidence of **why Git Rebase can be Dangerous**:
+
+In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite another developer's commit, meaning your teammates may not able to find their previously made commit(s) in the history.
 
 ## History
 
