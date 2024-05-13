@@ -319,6 +319,13 @@ In a more complicated, more real-world senario, there're risks that you can rewr
 
 ## History
 
+Now let's recap the Git Histories in both options we made.
+
+You can also see the histories in my demo repositories:
+
+- Option 1: [Merge](https://github.com/graezykev/git-nuance-demo-merge/commits/main/)
+- Option 2: [Rebase](https://github.com/graezykev/git-nuance-demo-rebase/commits/feature)
+
 <table>
   <thead>
     <tr>
@@ -446,7 +453,7 @@ Kev
 <tr>
 
 <td>
-D
+D (actually disappeared)
 </td>
 
 <td>
