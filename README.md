@@ -413,10 +413,10 @@ Dash
 </tr>
 
 <tr>
-  <td>B</td><td></td><td></td>
+  <td>B</td><td>...</td><td>Leader</td>
 </tr>
 <tr>
-  <td>A</td><td></td><td></td>
+  <td>A</td><td>...</td><td>Leader</td>
 </tr>
 
   </tbody>
@@ -500,10 +500,10 @@ Dash
 </tr>
 
 <tr>
-  <td>B</td><td></td><td></td>
+  <td>B</td><td>...</td><td>Leader</td>
 </tr>
 <tr>
-  <td>A</td><td></td><td></td>
+  <td>A</td><td>...</td><td>Leader</td>
 </tr>
 
   </tbody>
