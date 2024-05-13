@@ -1,4 +1,4 @@
-I may be too verbose to list these steps one by one, I suggest you start from the [Recap](#recap) part.
+I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part.
 
 ## Scenario Setup
 
@@ -44,7 +44,7 @@ And then make a commit of 'B'.
 
 ### Bseline Commit Graph
 
-Here's the commit graph by now, imagine it as the project **baseline**.
+Here's the commit graph by far, imagine it as the project **baseline**.
 
 ```css
 A---B [main]
@@ -95,7 +95,7 @@ And he makes a commit as `D`.
 
 ### Initial Git Commit Graph
 
-Simply put Kev's and Dash's commits above into a **Commit Graph**.
+Simply put Kev's and Dash's commits above into a commit graph.
 
 ```css
 A---B---C [main]
@@ -120,7 +120,7 @@ Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release `feature`.
 
-We all know right now Kev and Dash both edited line 2, meaning a **conflict** is definitely goint to happen in both options.
+We all know right now Kev and Dash both edited line 2, meaning a **conflict** is definitely going to happen in both options.
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
@@ -136,7 +136,7 @@ git merge feature
 
 <img alt="merge feature into main" src="merge-c.gif" width="600" />
 
-Here's the confict (in line 2).
+Here's the conflict (in line 2).
 
 ```txt
 Initial content
@@ -156,11 +156,11 @@ CONFLICT (content): Merge conflict in example.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Check it out: **fix conflicts and then commit the result.**
+Check it out: "**fix conflicts and then commit the result**"
 
-It tells us to both **Fix** and **Commit** so that the conficts can be resolved.
+It tells us to both **Fix** and **Commit** so that the conflicts can be resolved.
 
-Let's do it by "Accept Incoming Chage", which in this case means accepting branch `feature`'s change.
+Let's do it by "Accept Incoming Change", which in this case means accepting branch `feature`'s change.
 
 <img alt="fix git merge conflict and commit" src="merge-c-2.gif" width="600" />
 
@@ -190,7 +190,7 @@ A---B---C---M [main]
       D [feature]
 ```
 
-> `M` represents the new (Merge) commit (after fixing conflict)
+> `M` represents the new (Merge) commit (after fixing the conflict)
 
 ## Option 2: Rebase `feature` onto `main`
 
@@ -238,7 +238,7 @@ git rebase main
 
 <img alt="" src="rebase-c.gif" width="600"/>
 
-Here's the confict (also in line 2)
+Here's the conflict (also in line 2)
 
 ```txt
 Initial content
@@ -288,7 +288,7 @@ D
 #
 ```
 
-Here Git offers me an editor to edit the commit message of `D`, you can rewrite the commit `D` by editing the message (lines start with `#` will be ignored).
+Here Git offers me an editor to edit the commit message of `D`, you can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
 
 I made no change and just close the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
 
@@ -322,7 +322,7 @@ A---B---C [main]
           D' [feature]
 ```
 
-In this case, we did a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
+In this case, we made a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
 
 ## Recap
 
