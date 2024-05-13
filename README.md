@@ -109,7 +109,7 @@ Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release `feature`.
 
-We all know right now Kev and Dash both edited line 2, meaning a conflict is definitely goint to happen in both options.
+We all know right now Kev and Dash both edited line 2, meaning a **conflict** is definitely goint to happen in both options.
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
