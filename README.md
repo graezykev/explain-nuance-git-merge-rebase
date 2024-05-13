@@ -140,7 +140,18 @@ We all know right now Kev and Dash both edited line 2, meaning a **conflict** is
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
+Before continue, copy the initial status into 2 copies.
+
+```sh
+cd .. && \
+cp -r git-nuance-demo-merge git-nuance-demo-rebase
+```
+
 ## Option 1: Merge `feature` into `main`
+
+```sh
+cd git-nuance-demo-merge
+```
 
 ```sh
 git checkout main
@@ -210,17 +221,11 @@ A---B---C---M [main]
 
 ## Option 2: Rebase `feature` onto `main`
 
-> Before continuing the rebase process, **Re-do** the **Scenario Setup** with another Git repo
-
-the **Scenario Setup**, our [Initial Git Commit Graph](#initial-git-commit-graph) looks as this.
-
-```css
-A---B---C [main]
-     \
-      D [feature]
+```sh
+cd git-nuance-demo-rebase
 ```
 
-Take a look at branch `feature`'s logs at this point.
+Before continuing the rebase process, take a look at branch `feature`'s logs at this point.
 
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
 
