@@ -1,4 +1,4 @@
-I may be verbose to list these steps one by one, I suggest you jump to the [Recap](#recap) part.
+I may be too verbose to list these steps one by one, I suggest you start from the [Recap](#recap) part.
 
 ## Scenario Setup
 
@@ -316,6 +316,8 @@ A---B---C [main]
 In this case, we did a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
 
 ## Recap
+
+### Commit History
 
 Now let's recap the Git Histories in both options we made.
 
