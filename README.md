@@ -104,12 +104,12 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
   <img alt="" src="image-5.png" width="300" />
 
-Imagine we need to release the features in brach `feature`, we have 2 options:
+Imagine Kev needs to release the features in brach `feature`, he has 2 options:
 
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
-- `Rebase`: Rebase `feature` onto `main`, and release.
+- `Rebase`: Rebase `feature` onto `main`, and release `feature`.
 
-Next, we're going to make the 2 options respectively, and find out what are the different consequences of them.
+Next, we're going to simulate the 2 options respectively, and find out what are the different consequences of them.
 
 ## Option 1: Merge `feature` into `main`
 
