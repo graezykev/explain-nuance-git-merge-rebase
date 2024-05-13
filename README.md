@@ -287,7 +287,7 @@ Now the rebase has finished, take a look at the commit history of branch `featur
 
 Pay special attention to the commit ID of `D`.
 
-It's now `9e1e9f1...`, remember what was it before the rebase? It was `58beb1e...`.
+It's now `2512533...`, remember what was it before the rebase? It was `58beb1e...`.
 
 And the changes of this commit.
 
