@@ -109,7 +109,7 @@ Initial content
 
 And he makes a commit as `D`.
 
-### Initial Git Commit Graph
+## Initial Git Commit Graph
 
 Simply put Kev's and Dash's commits above into a commit graph.
 
@@ -129,7 +129,7 @@ Here are the **Git histories** on branch `main` and `feature` respectively.
 
   <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
 
-### Decision Time: Merging vs. Rebasing
+## Decision Time: Merging vs. Rebasing
 
 Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
