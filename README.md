@@ -10,7 +10,7 @@ I may be too verbose to list these steps one by one, but I suggest you start fro
 
 ## Scenario Setup
 
-Step 1: Initialize a Git Repository & Create a Starting File
+### Initialise a Git Repository & Create a Starting File
 
 Initiate a Git repository, as well as a `main` branch.
 
