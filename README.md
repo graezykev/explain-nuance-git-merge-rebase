@@ -430,8 +430,17 @@ Dash
 </tr>
 
 <tr>
-  <td>B</td><td>...</td><td>Leader</td>
+<td>B</td>
+<td>
+
+```diff
++Add by leader
+```
+
+</td>
+<td>Leader</td>
 </tr>
+
 <tr>
   <td>A</td><td>...</td><td>Leader</td>
 </tr>
@@ -517,8 +526,17 @@ Dash
 </tr>
 
 <tr>
-  <td>B</td><td>...</td><td>Leader</td>
+<td>B</td>
+<td>
+
+```diff
++Add by leader
+```
+
+</td>
+<td>Leader</td>
 </tr>
+
 <tr>
   <td>A</td><td>...</td><td>Leader</td>
 </tr>
