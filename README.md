@@ -1,6 +1,6 @@
 # Understanding Git: Practical Insights on Merge and Rebase
 
-Explore the intricate dance between merging and rebasing in Git, focusing on practical scenarios and visual aids.
+Explore the intricate dance between merging and rebasing in Git, explain the nuance off them, focusing on practical scenarios and visual aids.
 
 ## Table of Contents
 
