@@ -44,29 +44,17 @@ And then make a commit of 'B'.
 
 ### Bseline Commit Graph
 
-Here's the commit graph by now, imagine it as the project baseline.
+Here's the commit graph by now, imagine it as the project **baseline**.
 
 ```css
 A---B [main]
 ```
-
-### Commit `D` (New Branch)
 
 Let's say one of the developers Kev needs to develop a new feature, he creates a new branch `feature` based on `main`.
 
 ```sh
 git checkout -b feature
 ```
-
-And makes some changes to the second line.
-
-```diff
-Initial content
--Added by leader
-+Modified by Kev
-```
-
-<img alt="" src="image.png" width="500" />
 
 ### Commit `C`
 
@@ -85,6 +73,24 @@ Initial content
 ```
 
 <img alt="" src="image-3.png" width="500" />
+
+### Commit `D` (New Branch)
+
+In Kev's branch `feature`, he makes some changes to the second line.
+
+```sh
+git checkout feature
+```
+
+```diff
+Initial content
+-Added by leader
++Modified by Kev
+```
+
+<img alt="" src="image.png" width="500" />
+
+And he makes a commit as `D`.
 
 ### Initial Git Commit Graph
 
