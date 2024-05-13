@@ -318,8 +318,8 @@ This is typical evidence of **why Git Rebase can be Dangerous**.
 <table>
   <thead>
     <tr>
-      <td>Merge</td>
-      <td>Rebase</td>
+      <td>Option 1: Merge</td>
+      <td>Option 2: Rebase</td>
     </tr>
   </thead>
   <tbody>
