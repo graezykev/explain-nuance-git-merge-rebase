@@ -309,6 +309,182 @@ In this case, we did a "**History Rewrite**", after which `D` disappears and the
 
 This is typical evidence of **why Git Rebase can be Dangerous**.
 
+## History
+
+<table>
+  <thead>
+    <tr>
+      <td>Merge</td>
+      <td>Rebase</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+<td>
+
+<table>
+  <thead>
+    <tr>
+      <td>Commit</td>
+      <td>Diff</td>
+      <td>Author</td>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr>
+
+<td>
+Merge
+</td>
+
+<td>
+
+```diff
+-Modified by Dash
++Modified by Kev
+```
+
+</td>
+
+<td>
+Kev (or anyone else)
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+D
+</td>
+
+<td>
+
+```diff
+-Add by leader
++Modified by Kev
+```
+
+</td>
+
+<td>
+Kev
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+C
+</td>
+
+<td>
+
+```diff
+-Add by leader
++Modified by Dash
+```
+
+</td>
+
+<td>
+Dash
+</td>
+
+</tr>
+
+  </tbody>
+</table>
+
+</td>
+
+<td>
+
+<table>
+  <thead>
+    <tr>
+      <td>Commit</td>
+      <td>Diff</td>
+      <td>Author</td>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr>
+
+<td>
+D'
+</td>
+
+<td>
+
+```diff
+-Modified by Dash
++Modified by Kev
+```
+
+</td>
+
+<td>
+Kev
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+D
+</td>
+
+<td>
+
+```diff
+-Add by leader
++Modified by Kev
+```
+
+</td>
+
+<td>
+Kev
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+C
+</td>
+
+<td>
+
+```diff
+-Add by leader
++Modified by Dash
+```
+
+</td>
+
+<td>
+Dash
+</td>
+
+</tr>
+
+  </tbody>
+</table>
+
+</td>
+
+    </tr>
+  </tbody>
+</table>
+
 ## Conclusion: Nuance
 
 After fixing the conflicts:
