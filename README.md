@@ -53,6 +53,7 @@ A---B [main]
 Let's say one of the developers Kev needs to develop a new feature, he creates a new branch `feature` based on `main`.
 
 ```sh
+git checkout main && \
 git checkout -b feature
 ```
 
@@ -64,7 +65,7 @@ During Kev's development, another developer Dash edited branch `main` first, wit
 git checkout main
 ```
 
-In this commit `C` he also made some changes to the second line.
+In this commit `C` he **modified the second line**.
 
 ```diff
 Initial content
@@ -76,7 +77,7 @@ Initial content
 
 ### Commit `D` (New Branch)
 
-In Kev's branch `feature`, he makes some changes to the second line.
+Return to Kev's branch `feature`, he also makes some changes to the **second line**.
 
 ```sh
 git checkout feature
@@ -94,7 +95,7 @@ And he makes a commit as `D`.
 
 ### Initial Git Commit Graph
 
-Simply put Kev's and Dash's commits above into this graph:
+Simply put Kev's and Dash's commits above into a **Commit Graph**.
 
 ```css
 A---B---C [main]
