@@ -336,7 +336,7 @@ In this case, we made a "**History Rewrite**", after which the commit `D` disapp
 
 ### Commit History
 
-Now let's recap the Git Histories in both options we made.
+Now let's recap the primary steps and Git Histories in both options we made.
 
 You can also see the histories in my demo repositories:
 
