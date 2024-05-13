@@ -221,7 +221,7 @@ git rebase main
 
 <img alt="" src="rebase-c.gif" width="600"/>
 
-Here's the confict
+Here's the confict (also in line 2)
 
 ```txt
 Initial content
