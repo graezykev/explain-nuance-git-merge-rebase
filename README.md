@@ -1,6 +1,6 @@
-# Understanding Git: Practical Insights on Merge and Rebase
+# Git Merge vs. Rebase: The Nuance
 
-Explore the intricate dance between merging and rebasing in Git, explain the nuance off them, focusing on practical scenarios and visual aids.
+Explore the intricate dance between merging and rebasing in Git, clarify these often misunderstood commands with a hands-on demonstration.
 
 ## Introduction
 
@@ -33,7 +33,9 @@ Input a first line into `example.txt`
 +Initial content
 ```
 
+<!--
 <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-1.png" width="500" />
+-->
 
 And then make a commit of 'A'.
 
@@ -44,7 +46,9 @@ Initial content
 +Added by leader
 ```
 
+<!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-2.png" width="500" />
+-->
 
 And then make a commit of 'B'.
 
@@ -81,7 +85,9 @@ Initial content
 +Modified by Dash
 ```
 
+<!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-3.png" width="500" />
+-->
 
 ### Commit `D` (Developing on Feature Branch)
 
@@ -97,7 +103,9 @@ Initial content
 +Modified by Kev
 ```
 
+<!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image.png" width="500" />
+-->
 
 And he makes a commit as `D`.
 
@@ -164,7 +172,7 @@ CONFLICT (content): Merge conflict in example.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Check it out: "**fix conflicts and then commit the result**"
+Check this one out: "**fix conflicts and then commit the result**"
 
 It tells us to both **Fix** and **Commit** so that the conflicts can be resolved.
 
@@ -178,7 +186,7 @@ Do you notice the **new** commit in the Git Logs of `main`?
 
 The details of the new commit (**Merge Commit**).
 
-<img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
+<img alt="change of merge commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
 
 ```diff
 Initial content
@@ -198,7 +206,7 @@ A---B---C---M [main]
       D [feature]
 ```
 
-> `M` represents the new (Merge) commit (after fixing the conflict)
+> `M` represents the new (Merge) commit (after fixing the conflict).
 
 ## Option 2: Rebase `feature` onto `main`
 
@@ -212,7 +220,7 @@ A---B---C [main]
       D [feature]
 ```
 
-Take a look at branch `feature` at this point.
+Take a look at branch `feature`'s logs at this point.
 
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
 
@@ -220,7 +228,9 @@ The commit `D`'s commit ID (hash) is `58beb1e...`.
 
 And the changes in this commit is:
 
+<!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
+-->
 
 ```diff
 Initial content
@@ -310,7 +320,9 @@ It's now `047c348...`, remember what was it before the rebase? It was `58beb1e..
 
 And the changes of this commit.
 
+<!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
+-->
 
 ```diff
 Initial content
