@@ -354,7 +354,7 @@ Merge
 </td>
 
 <td>
-Kev (or anyone else)
+Kev
 </td>
 
 </tr>
