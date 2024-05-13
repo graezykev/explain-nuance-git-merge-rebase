@@ -185,7 +185,7 @@ A---B---C---M [main]
 
 > Before continuing the rebase process, **Re-do** the **Scenario Setup** with another Git repo
 
-the **Scenario Setup**, our initial commit graph looks as this.
+the **Scenario Setup**, our [Initial Git Commit Graph](#initial-git-commit-graph) looks as this.
 
 ```css
 A---B---C [main]
@@ -193,13 +193,13 @@ A---B---C [main]
       D [feature]
 ```
 
-Take a look at branch `feature`.
+Take a look at branch `feature` at this point.
 
 <img alt="" src="image-6.png" width="500" />
 
-The commit `D`'s commit ID (hash) is `4fdc6b4...`.
+The commit `D`'s commit ID (hash) is `58beb1e...`.
 
-And the changes in this commit.
+And the changes in this commit is:
 
 <img alt="" src="image-13.png" width="500" />
 
@@ -235,7 +235,7 @@ Initial content
 Modified by Dash
 =======
 Modified by Kev
->>>>>>> 4fdc6b4 (D)
+>>>>>>> 58beb1e (D)
 ```
 
 The conflict looks **identical** to what we did in the last option (Merge) doesn't it? But the terminal console is different.
@@ -244,12 +244,12 @@ The conflict looks **identical** to what we did in the last option (Merge) doesn
 /workspaces/git-nuance-demo-rebase (feature) $ git rebase main
 Auto-merging example.txt
 CONFLICT (content): Merge conflict in example.txt
-error: could not apply 4fdc6b4... D
+error: could not apply 58beb1e... D
 hint: Resolve all conflicts manually, mark them as resolved with
 hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
 hint: You can instead skip this commit: run "git rebase --skip".
 hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
-Could not apply 4fdc6b4... D
+Could not apply 58beb1e... D
 ```
 
 It tells us to **Resolve all conflicts manually**, and continue with `git rebase --continue`.
@@ -268,7 +268,7 @@ D
 #
 # interactive rebase in progress; onto 05cfdd2
 # Last command done (1 command done):
-#    pick 4fdc6b4 D
+#    pick 58beb1e D
 # No commands remaining.
 # You are currently rebasing branch 'feature' on '05cfdd2'.
 #
@@ -287,7 +287,7 @@ Now the rebase has finished, take a look at the commit history of branch `featur
 
 Pay special attention to the commit ID of `D`.
 
-It's now `9e1e9f1...`, remember what was it before the rebase? It was `4fdc6b4...`.
+It's now `9e1e9f1...`, remember what was it before the rebase? It was `58beb1e...`.
 
 And the changes of this commit.
 
