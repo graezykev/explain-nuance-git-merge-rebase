@@ -319,7 +319,8 @@ This is typical evidence of **why Git Rebase can be Dangerous**.
     </tr>
   </thead>
   <tbody>
-    <tr>
+
+<tr>
 
 <td>
 
@@ -481,7 +482,8 @@ Dash
 
 </td>
 
-    </tr>
+</tr>
+
   </tbody>
 </table>
 
