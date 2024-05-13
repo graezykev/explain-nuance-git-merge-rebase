@@ -1,3 +1,5 @@
+I may be verbose to list these steps one by one, I suggest you jump to the [Recap](#recap) part.
+
 ## Scenario Setup
 
 Initiate a Git repository, as well as a `main` branch.
@@ -313,11 +315,7 @@ A---B---C [main]
 
 In this case, we did a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
 
-This is typical evidence of **why Git Rebase can be Dangerous**:
-
-In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite another developer's commit, meaning your teammates may not able to find their previously made commit(s) in the history.
-
-## History
+## Recap
 
 Now let's recap the Git Histories in both options we made.
 
@@ -553,6 +551,18 @@ A---B---C [main]
 
 </tbody>
 </table>
+
+The **Merge** option preserves the exact history of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
+
+The **Rebase** option rewrites the commit history to make it look as if you've created your changes on top of the latest remote commits. This can make the commit history cleaner and linear but can be confusing because it alters commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
+
+### Git Rebase can be Dangerous
+
+This is typical evidence of **why Git Rebase can be Dangerous**:
+
+In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite another developer's commit, meaning your teammates may not able to find their previously made commit(s) in the history.
+
+I've seen lots of developers are prone to **avoid using rebase**, or setting up princeples like "**Don’t rebase a branch that’s been published remotely**",  Choosing merge or rebase based on your project’s need is a very broaden topic which is not whitin my topic scope in this post, I find a better learning material [for your information](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
 
 ## Conclusion: Nuance
 
