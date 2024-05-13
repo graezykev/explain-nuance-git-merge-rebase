@@ -10,6 +10,8 @@ I may be too verbose to list these steps one by one, but I suggest you start fro
 
 ## Scenario Setup
 
+Step 1: Initialize a Git Repository & Create a Starting File
+
 Initiate a Git repository, as well as a `main` branch.
 
 ```sh
@@ -19,13 +21,11 @@ git init && \
 git branch -M main
 ```
 
-Create a file.
-
  ```sh
 touch example.txt
  ```
 
-### Commit `A`
+### Make Initial Commits `A` and `B`
 
 Input a first line into `example.txt`
 
@@ -37,8 +37,6 @@ Input a first line into `example.txt`
 
 And then make a commit of 'A'.
 
-### Commit `B`
-
 Input a second line into `example.txt`
 
 ```diff
@@ -46,7 +44,7 @@ Initial content
 +Added by leader
 ```
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-2.png" width="500" />
+<img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-2.png" width="500" />
 
 And then make a commit of 'B'.
 
@@ -57,6 +55,8 @@ Here's the commit graph by far, imagine it as the project **baseline**.
 ```css
 A---B [main]
 ```
+
+### Scenario Expansion: Creating a Feature Branch
 
 Let's say one of the developers Kev needs to develop a new feature, he creates a new branch `feature` based on `main`.
 
@@ -81,9 +81,9 @@ Initial content
 +Modified by Dash
 ```
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-3.png" width="500" />
+<img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-3.png" width="500" />
 
-### Commit `D` (New Branch)
+### Commit `D` (Developing on Feature Branch)
 
 Return to Kev's branch `feature`, he also makes some changes to the **second line**.
 
@@ -97,7 +97,7 @@ Initial content
 +Modified by Kev
 ```
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image.png" width="500" />
+<img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image.png" width="500" />
 
 And he makes a commit as `D`.
 
@@ -111,17 +111,17 @@ A---B---C [main]
       D [feature]
 ```
 
-Here are the **Git Histories** on branch `main` and `feature` respectively.
+Here are the **Git histories** on branch `main` and `feature` respectively.
 
 - Git Logs on `main`
 
-  <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-4.png" width="500" />
+  <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-4.png" width="500" />
 
 - Git Logs on `feature`
 
-  <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
+  <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
 
-### Options
+### Decision Time: Merging vs. Rebasing
 
 Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
@@ -214,13 +214,13 @@ A---B---C [main]
 
 Take a look at branch `feature` at this point.
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
+<img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
 
 The commit `D`'s commit ID (hash) is `58beb1e...`.
 
 And the changes in this commit is:
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
+<img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
 
 ```diff
 Initial content
@@ -244,7 +244,7 @@ Rebase it onto `main`.
 git rebase main
 ```
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c.gif" width="600"/>
+<img alt="rebase feature onto main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c.gif" width="600"/>
 
 Here's the conflict (also in line 2)
 
@@ -302,7 +302,7 @@ I made no change and just close the commit editor, the rebase process was contin
 
 Now the rebase has finished, take a look at the commit history of branch `feature`.
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
+<img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
 
 Pay special attention to the commit ID of `D` (new `D`).
 
@@ -310,7 +310,7 @@ It's now `047c348...`, remember what was it before the rebase? It was `58beb1e..
 
 And the changes of this commit.
 
-<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
+<img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
 
 ```diff
 Initial content
