@@ -98,11 +98,11 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
 - Git Logs on `main`
 
-  <img alt="" src="image-4.png" width="450" />
+  <img alt="" src="image-4.png" width="500" />
 
 - Git Logs on `feature`
 
-  <img alt="" src="image-5.png" width="450" />
+  <img alt="" src="image-5.png" width="500" />
 
 Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
@@ -155,11 +155,11 @@ Let's do it by "Accept Incoming Chage", which in this case means accepting branc
 
 Do you notice the **new** commit in the Git Logs of `main`?
 
-<img alt="merge" src="image-7.png" width="250" />
+<img alt="merge" src="image-7.png" width="500" />
 
 The details of the new commit (**Merge Commit**).
 
-<img alt="merge" src="image-8.png" width="250" />
+<img alt="merge" src="image-8.png" width="500" />
 
 ```diff
 Initial content
@@ -169,7 +169,7 @@ Initial content
 
 If you take a deeper look at the new commit, it has 2 **parents**, in this case, commit `C` and commit `D`
 
-<img alt="merge commit parents" src="image-10.png" width="250" />
+<img alt="merge commit parents" src="image-10.png" width="500" />
 
 ### Graph After Merge
 
@@ -195,7 +195,7 @@ A---B---C [main]
 
 Take a look at branch `feature`.
 
-<img alt="" src="image-6.png" width="250" />
+<img alt="" src="image-6.png" width="500" />
 
 The commit `D`'s commit ID (hash) is `4fdc6b4...`.
 
@@ -283,7 +283,7 @@ I can make no change and just leave it.
 
 Now the rebase has finished, take a look at the commit history of branch `feature`.
 
-<img alt="" src="image-11.png" width="250" />
+<img alt="" src="image-11.png" width="500" />
 
 Pay special attention to the commit ID of `D`.
 
@@ -291,7 +291,7 @@ It's now `9e1e9f1...`, remember what was it before the rebase? It was `4fdc6b4..
 
 And the changes of this commit.
 
-<img alt="" src="image-9.png" width="250" />
+<img alt="" src="image-9.png" width="500" />
 
 ```diff
 Initial content
