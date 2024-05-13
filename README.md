@@ -98,11 +98,11 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
 - Git Logs on `main`
 
-  <img alt="" src="image-4.png" width="300" />
+  <img alt="" src="image-4.png" width="450" />
 
 - Git Logs on `feature`
 
-  <img alt="" src="image-5.png" width="300" />
+  <img alt="" src="image-5.png" width="450" />
 
 Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
