@@ -112,6 +112,8 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
   <img alt="" src="image-5.png" width="500" />
 
+### Options
+
 Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
