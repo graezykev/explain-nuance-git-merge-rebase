@@ -33,7 +33,7 @@ Input a first line into `example.txt`
 +Initial content
 ```
 
-<img alt="" src="image-1.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-1.png" width="500" />
 
 And then make a commit of 'A'.
 
@@ -46,7 +46,7 @@ Initial content
 +Added by leader
 ```
 
-<img alt="" src="image-2.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-2.png" width="500" />
 
 And then make a commit of 'B'.
 
@@ -81,7 +81,7 @@ Initial content
 +Modified by Dash
 ```
 
-<img alt="" src="image-3.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-3.png" width="500" />
 
 ### Commit `D` (New Branch)
 
@@ -97,7 +97,7 @@ Initial content
 +Modified by Kev
 ```
 
-<img alt="" src="image.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image.png" width="500" />
 
 And he makes a commit as `D`.
 
@@ -115,11 +115,11 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
 - Git Logs on `main`
 
-  <img alt="" src="image-4.png" width="500" />
+  <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-4.png" width="500" />
 
 - Git Logs on `feature`
 
-  <img alt="" src="image-5.png" width="500" />
+  <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
 
 ### Options
 
@@ -142,7 +142,7 @@ git checkout main
 git merge feature
 ```
 
-<img alt="merge feature into main" src="merge-c.gif" width="600" />
+<img alt="merge feature into main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c.gif" width="600" />
 
 Here's the conflict (in line 2).
 
@@ -170,15 +170,15 @@ It tells us to both **Fix** and **Commit** so that the conflicts can be resolved
 
 Let's do it by "Accept Incoming Change", which in this case means accepting branch `feature`'s change.
 
-<img alt="fix git merge conflict and commit" src="merge-c-2.gif" width="600" />
+<img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
 Do you notice the **new** commit in the Git Logs of `main`?
 
-<img alt="merge" src="image-7.png" width="500" />
+<img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-7.png" width="500" />
 
 The details of the new commit (**Merge Commit**).
 
-<img alt="merge" src="image-8.png" width="500" />
+<img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
 
 ```diff
 Initial content
@@ -188,7 +188,7 @@ Initial content
 
 If you take a deeper look at the new commit, it has 2 **parents**, in this case, commit `C` and commit `D`
 
-<img alt="merge commit parents" src="image-10.png" width="500" />
+<img alt="merge commit parents" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-10.png" width="500" />
 
 ### Graph After Merge
 
@@ -214,13 +214,13 @@ A---B---C [main]
 
 Take a look at branch `feature` at this point.
 
-<img alt="" src="image-6.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
 
 The commit `D`'s commit ID (hash) is `58beb1e...`.
 
 And the changes in this commit is:
 
-<img alt="" src="image-13.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
 
 ```diff
 Initial content
@@ -244,7 +244,7 @@ Rebase it onto `main`.
 git rebase main
 ```
 
-<img alt="" src="rebase-c.gif" width="600"/>
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c.gif" width="600"/>
 
 Here's the conflict (also in line 2)
 
@@ -275,7 +275,7 @@ It tells us to **Resolve all conflicts manually**, and continue with `git rebase
 
 OK let's follow the guide to resolve the conflict (also by "Accept Incoming Change").
 
-<img alt="fix git rebase conflict and commit" src="rebase-c-2.gif" width="600"/>
+<img alt="fix git rebase conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c-2.gif" width="600"/>
 
 Take some insight into the content after I run `git rebase --continue`.
 
@@ -302,7 +302,7 @@ I made no change and just close the commit editor, the rebase process was contin
 
 Now the rebase has finished, take a look at the commit history of branch `feature`.
 
-<img alt="" src="image-11.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
 
 Pay special attention to the commit ID of `D` (new `D`).
 
@@ -310,7 +310,7 @@ It's now `047c348...`, remember what was it before the rebase? It was `58beb1e..
 
 And the changes of this commit.
 
-<img alt="" src="image-9.png" width="500" />
+<img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
 
 ```diff
 Initial content
