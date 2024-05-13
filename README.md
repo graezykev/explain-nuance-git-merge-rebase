@@ -564,7 +564,7 @@ This is typical evidence of **why Git Rebase can be Dangerous**:
 
 In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite another developer's commit, meaning your teammates may not able to find their previously made commit(s) in the history.
 
-I've seen lots of developers are prone to **avoid using rebase**, or setting up princeples like "**Don’t rebase a branch that’s been published remotely**",  choosing between merge and rebase based on your project’s need is a very broaden topic which is not whitin my topic scope in this post, I find a better learning material [for your information](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
+I've seen lots of developers are prone to **avoid using rebase**, or setting up princeples like "**Don’t rebase a branch that’s been published remotely**",  choosing between merge and rebase based on your project’s need is a very broaden topic which is not whitin my topic scope in this post, I find a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
 
 ## Conclusion: Nuance
 
