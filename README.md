@@ -2,9 +2,11 @@
 
 Explore the intricate dance between merging and rebasing in Git, explain the nuance off them, focusing on practical scenarios and visual aids.
 
-## Table of Contents
+## Introduction
 
-I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part.
+I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straightly to the [conclusion](#conclusion-nuance).
+
+## Table of Contents
 
 ## Scenario Setup
 
