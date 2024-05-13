@@ -516,6 +516,44 @@ Dash
   </tbody>
 </table>
 
+### Commit Graph After each Option
+
+<table>
+<thead>
+<tr>
+<td>Merge</td>
+<td>Rebase</td>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+
+<td>
+
+```css
+A---B---C---M [main]
+     \       /
+      D [feature]
+```
+
+</td>
+
+<td>
+
+```css
+A---B---C [main]
+         \
+          D' [feature]
+```
+
+</td>
+
+</tr>
+
+</tbody>
+</table>
+
 ## Conclusion: Nuance
 
 After fixing the conflicts:
