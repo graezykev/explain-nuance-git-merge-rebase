@@ -589,6 +589,8 @@ A---B---C [main]
 </tbody>
 </table>
 
+There are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
+
 The **Merge** option preserves the exact history of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
 
 The **Rebase** option rewrites the commit history to make it look as if you've created your changes on top of the latest remote commits. This can make the commit history cleaner and linear but can be confusing because it alters commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
