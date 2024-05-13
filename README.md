@@ -412,6 +412,13 @@ Dash
 
 </tr>
 
+<tr>
+  <td>B</td><td></td><td></td>
+</tr>
+<tr>
+  <td>A</td><td></td><td></td>
+</tr>
+
   </tbody>
 </table>
 
@@ -490,6 +497,13 @@ C
 Dash
 </td>
 
+</tr>
+
+<tr>
+  <td>B</td><td></td><td></td>
+</tr>
+<tr>
+  <td>A</td><td></td><td></td>
 </tr>
 
   </tbody>
