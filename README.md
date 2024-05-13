@@ -60,7 +60,7 @@ Here's the commit graph by far, imagine it as the project **baseline**.
 A---B [main]
 ```
 
-### Scenario Expansion: Creating a Feature Branch
+### Create a Feature Branch
 
 Let's say one of the developers Kev needs to develop a new feature, he creates a new branch `feature` based on `main`.
 
