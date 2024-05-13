@@ -165,6 +165,10 @@ Initial content
 +Modified by Kev
 ```
 
+If you take a deeper look at the new commit, it has 2 *parents*, in this case, commit `C` and commit `D`
+
+<img alt="merge commit parents" src="image-10.png" width="250" />
+
 ### Graph After Merge
 
 ```css
