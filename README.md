@@ -174,7 +174,7 @@ Modified by Kev
 >>>>>>> feature
 ```
 
-And take notes on the console.
+And take notes on the terminal console.
 
 ```console
 /workspaces/git-nuance-demo-merge (main) $ git merge feature
