@@ -104,7 +104,7 @@ Here are the **Git Histories** on branch `main` and `feature` respectively.
 
   <img alt="" src="image-5.png" width="300" />
 
-Imagine Kev needs to release the features in brach `feature`, he has 2 options:
+Imagine Kev needs to release the features in branch `feature`, he has 2 options:
 
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release `feature`.
@@ -191,7 +191,7 @@ A---B---C [main]
       D [feature]
 ```
 
-Take a look at brach `feature`.
+Take a look at branch `feature`.
 
 <img alt="" src="image-6.png" width="250" />
 
