@@ -118,6 +118,7 @@ A---B---C [main]
      \
       D [feature]
 ```
+<!--
 
 Here are the **Git histories** on branch `main` and `feature` respectively.
 
@@ -128,6 +129,8 @@ Here are the **Git histories** on branch `main` and `feature` respectively.
 - Git Logs on `feature`
 
   <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
+
+-->
 
 ## Decision Time: Merging vs. Rebasing
 
@@ -247,7 +250,7 @@ The commit ID and changes are going to be changed after the rebase, we'll see wh
 
 Now let's start the **Rebase**.
 
-Go to `feature`.
+Go to branch `feature`.
 
 ```sh
 git checkout feature
