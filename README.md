@@ -229,13 +229,13 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 Check this one out: "**fix conflicts and then commit the result**"
 
-It tells us to both **Fix** and **Commit** so that the conflicts can be resolved.
+It tells us to both **Fix** and **Commit** so that the conflicts can be resolved, which means, a new commit is needed when in resolving merge conflicts.
 
 Let's do it by "Accept Incoming Change", which in this case means accepting branch `feature`'s change.
 
 <img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
-If you check out the log by running `git log main` you'll notice a **new** commit (**Merge commit**) in the Git logs saying "Merge branch...":
+If you check out the log by running `git log main` you'll notice the **new** commit (**Merge** commit) in the logs saying "Merge branch...":
 
 <!--
 <img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-7.png" width="500" />
@@ -265,15 +265,12 @@ Author: Leader <leader@test.com>
 
     B
 
-commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
-Author: Leader <leader@test.com>
-
-    A
+...
 ```
 
-Want to know what are the changes of the change of the new commit?
+Want to know what are the changes in this the new commit?
 
-Run `git diff 4d6ac5e~ 4d6ac5e` (4d6ac5e is the commit ID(hash) of the commit)
+Run `git diff 4d6ac5e~ 4d6ac5e` (4d6ac5e is the commit ID (hash))
 
 <!--
 <img alt="change of merge commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
@@ -291,11 +288,13 @@ index 22ad65d..d49a266 100644
 +Modified by Kev
 ```
 
-If you take a deeper look at the information of the new commit, pay attention to the line:
+If you take a deeper look at the information of this new commit, pay attention to the line:
 
-**Merge: ac466be 58beb1e**
+**Merge: `ac466be` `58beb1e`**
 
-This commit (**Merge** commit) has 2 "**parents**", pointing to commit `C` and commit `D`
+What does it mean?
+
+This **Merge** commit has 2 "**parents**", pointing to commit `C` and commit `D`
 
 <img alt="merge commit parents" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-10.png" width="500" />
 
@@ -306,8 +305,6 @@ A---B---C---M [main]
      \       /
       D [feature]
 ```
-
-> `M` represents the new (**Merge**) commit (after fixing the conflict).
 
 ## Option 2: Rebase `feature` onto `main`
 
@@ -328,17 +325,7 @@ commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (Head -> feature)
 Author: Kev <kev@test.com>
 
     D
-
-commit fd6ecc11625c41c06e150015254b16a620c1cd44
-Author: Leader <leader@test.com>
-
-    B
-
-commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
-Author: Leader <leader@test.com>
-
-    A
-
+...
 ```
 
 The commit `D`'s commit ID (hash) is `58beb1e...`.
@@ -448,15 +435,7 @@ Author: Dash <dash@test.com>
 
     C
 
-commit fd6ecc11625c41c06e150015254b16a620c1cd44
-Author: Leader <leader@test.com>
-
-    B
-
-commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
-Author: Leader <leader@test.com>
-
-    A
+...
 ```
 
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
