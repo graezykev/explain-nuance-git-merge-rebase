@@ -773,4 +773,4 @@ After fixing the conflicts:
 
 - `Merge`: You need to make a **new commit** indicating how you solved the conflicts, from which your teammates can straightforwardly see how you did that.
 
-- `Rebase`: You **modify the existent commit**, if you are resolving conflict, in this modified commit your teammates may see how you solve the conflicts.
+- `Rebase`: You **modify the existent commit**, if you are resolving conflict, in this modified commit you may modify the codes or commit messages that others had committed before.
