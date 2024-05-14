@@ -1,10 +1,12 @@
-# Git Merge vs. Rebase: The Nuance
+# A Nuance of Git Merge and Rebase
 
-Explore the intricate dance between merging and rebasing in Git, clarify these often misunderstood commands with a hands-on demonstration.
+Explore the intricate dance between merging and rebasing in Git, and clarify these often misunderstood commands with a hands-on demonstration.
 
 ## Introduction
 
-I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straightly to the [conclusion](#conclusion-nuance).
+I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it. And I notice that some teams even simply and crudely forbid rebase in their project.
+
+I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [conclusion](#conclusion-nuance).
 
 ## Table of Contents
 
@@ -119,7 +121,7 @@ A---B---C [main]
       D [feature]
 ```
 
-And their check history details out by running `git log main` adn `git log feature`:
+And their check history details out by running `git log main` and `git log feature`:
 
 - `main`
 
@@ -184,7 +186,7 @@ We all know right now Kev and Dash both edited line 2, meaning a **conflict** is
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
-> Before continue, copy the initial status into 2 copies.
+> Before continuing, copy the initial status into 2 copies.
 >
 > ```sh
 > cd .. && \
@@ -229,7 +231,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 Check this one out: "**fix conflicts and then commit the result**"
 
-It tells us to both **Fix** and **Commit** so that the conflicts can be resolved, which means, a new commit is needed when in resolving merge conflicts.
+It tells us to both **Fix** and **Commit** so that the conflicts can be resolved, which means, a new commit is needed when resolving merge conflicts.
 
 Let's do it by "Accept Incoming Change", which in this case means accepting branch `feature`'s change.
 
@@ -268,7 +270,7 @@ Author: Leader <leader@test.com>
 ...
 ```
 
-Want to know what are the changes in this the new commit?
+Want to know what the changes are in this this new commit?
 
 Run `git diff 4d6ac5e~ 4d6ac5e` (4d6ac5e is the commit ID (hash))
 
@@ -330,7 +332,7 @@ Author: Kev <kev@test.com>
 
 The commit `D`'s commit ID (hash) is `58beb1e...`.
 
-And the changes in this commit is:
+And the change in this commit is:
 
 <!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
@@ -743,11 +745,11 @@ The **Rebase** option rewrites the commit history to make it look as if you've c
 
 This is typical evidence of **why Git Rebase can be Dangerous**:
 
-In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite/delete another developer's commit from the history, meaning your teammates may not able to find their previously made commit(s).
+In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite/delete another developer's commit from the history, meaning your teammates may not be able to find their previously made commit(s).
 
-I've seen lots of developers are prone to **avoid using rebase**, or setting up princeples like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
+There are some basic princeples in using rebase like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
 
-Choosing between merge and rebase based on your project’s need is a very broaden topic which is not whitin my topic scope in this post, I find a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
+Choosing between merge and rebase based on your project’s need is a very broad topic which is not within my topic scope in this post, I found a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
 
 ## Conclusion: Nuance
 
