@@ -18,7 +18,9 @@ I've seen lots of developers are prone to **avoid using rebase**, considering th
 - [Initial Git Commit Graph](#initial-git-commit-graph)
 - [Decision Time: Merging vs. Rebasing](#decision-time-merging-vs-rebasing)
 - [Option 1: Merge feature into main](#option-1-merge-feature-into-main)
+  - [Graph After Merge](#graph-after-merge)
 - [Option 2: Rebase feature onto main](#option-2-rebase-feature-onto-main)
+  - [Graph After Rebase](#graph-after-rebase)
 - [Recap](#recap)
 - [Conclusion: Nuance](#conclusion-nuance)
 
