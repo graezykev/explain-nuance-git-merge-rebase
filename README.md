@@ -140,9 +140,9 @@ A---B---C [main]
       D [feature]
 ```
 
-And check their Git history details by running git log main and git log feature:
+And check their Git history details by running `git log main` and `git log feature`:
 
-> The commit IDs (hashes) will be different on your device.
+> The commit IDs (hashes) will be different if you try following my steps from the beginning on your device.
 
 - `main`
 
