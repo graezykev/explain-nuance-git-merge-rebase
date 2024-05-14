@@ -771,4 +771,4 @@ Choosing between merge and rebase based on your project’s need is a very broad
 
 - `Merge`: You need to make a **new commit** indicating how you solved the conflicts, from which your teammates can straightforwardly see how you did that.
 
-- `Rebase`: You **modify the existent commit**, if you are resolving conflict, in this modified commit you may modify the codes or commit messages that others had committed before.
+- `Rebase`: You **modify the existent commit**, if you are resolving conflicts, in this modified commit you may modify the codes or commit messages that others had made before.
