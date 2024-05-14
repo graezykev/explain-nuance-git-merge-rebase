@@ -1,4 +1,4 @@
-# A Nuance of Git Merge and Rebase
+# A Guide to Understanding the Nuances of Git Merge and Rebase
 
 ## Introduction
 
