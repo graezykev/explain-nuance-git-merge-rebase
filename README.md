@@ -184,12 +184,12 @@ We all know right now Kev and Dash both edited line 2, meaning a **conflict** is
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
-Before continue, copy the initial status into 2 copies.
-
-```sh
-cd .. && \
-cp -r git-nuance-demo-merge git-nuance-demo-rebase
-```
+> Before continue, copy the initial status into 2 copies.
+>
+> ```sh
+> cd .. && \
+> cp -r git-nuance-demo-merge git-nuance-demo-rebase
+>  ```
 
 ## Option 1: Merge `feature` into `main`
 
