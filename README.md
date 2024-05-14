@@ -118,19 +118,60 @@ A---B---C [main]
      \
       D [feature]
 ```
+
+And their history details:
+
+- `main`
+
 <!--
-
-Here are the **Git histories** on branch `main` and `feature` respectively.
-
-- Git Logs on `main`
-
   <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-4.png" width="500" />
-
-- Git Logs on `feature`
-
-  <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
-
 -->
+
+```console
+/workspaces/git-nuance-demo-merge (main) $ git log main
+
+commit ac466bea2d13762608660e27798ba08b840529db (HEAD -> main)
+Author: Dash <dash@test.com>
+
+    C
+
+commit fd6ecc11625c41c06e150015254b16a620c1cd44
+Author: Leader <leader@test.com>
+
+    B
+
+commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
+Author: Leader <leader@test.com>
+
+    A
+
+```
+
+- `feature`
+
+<!--
+  <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-5.png" width="500" />
+-->
+
+```console
+/workspaces/git-nuance-demo-merge (main) $ git log feature
+
+commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (origin/feature, feature)
+Author: Kev <kev@test.com>
+
+    D
+
+commit fd6ecc11625c41c06e150015254b16a620c1cd44
+Author: Leader <leader@test.com>
+
+    B
+
+commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
+Author: Leader <leader@test.com>
+
+    A
+
+```
 
 ## Decision Time: Merging vs. Rebasing
 
@@ -177,7 +218,7 @@ Modified by Kev
 >>>>>>> feature
 ```
 
-And take notes on the terminal console.
+And take notes on the terminal console:
 
 ```console
 /workspaces/git-nuance-demo-merge (main) $ git merge feature
@@ -194,13 +235,15 @@ Let's do it by "Accept Incoming Change", which in this case means accepting bran
 
 <img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
-Do you notice the **new** commit in the Git Logs of `main`?
+If you check by running `git log main` you'll notice a **new** commit (**Merge commit**) in the Git logs saying "Merge branch...":
 
 <img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-7.png" width="500" />
 
-The details of the new commit (**Merge Commit**).
+The change of the new commit:
 
+<!--
 <img alt="change of merge commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
+-->
 
 ```diff
 Initial content
@@ -208,7 +251,7 @@ Initial content
 +Modified by Kev
 ```
 
-If you take a deeper look at the new commit, it has 2 **parents**, in this case, commit `C` and commit `D`
+If you take a deeper look at the new commit, it has 2 "**parents**", pointing to commit `C` and commit `D`
 
 <img alt="merge commit parents" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-10.png" width="500" />
 
