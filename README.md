@@ -2,13 +2,11 @@
 
 ## Introduction
 
-I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it.
+I've seen many developers **avoid using rebase** due to its complexity. I've also noticed that some teams even forbid rebase in their projects altogether.
 
-And I also noticed that some teams even simply and crudely forbid rebase in their project.
+In this post, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This post aims to clarify these often misunderstood commands with a hands-on demonstration.
 
-In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
-
-I may be too verbose walking you through these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [Key Takeaways](#key-takeaways-merge-or-rebase).
+I may be too verbose in walking you through these steps one by one, but I suggest you start from the [Recap](#recap) section, or jump straight to the [Key Takeaways](#key-takeaways-merge-or-rebase) section.
 
 ## Table of Contents
 
