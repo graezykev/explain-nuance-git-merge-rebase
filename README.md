@@ -77,13 +77,11 @@ Initial content
 
 ### Bseline Commit Graph
 
-The commit graph now looks like this:
+Now we can visualize the project's **baseline** with this commit graph:
 
 ```css
 A---B [main]
 ```
-
-Imagine it as the project **baseline**.
 
 ### Create a Feature Branch
 
