@@ -458,7 +458,7 @@ Here Git offers me an editor to edit the commit message of `D`.
 
 You can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
 
-I made no change and just closed the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
+I made no change and just closed the commit editor, the rebase process was proceeded with the "**rewritten**" of commit `D`.
 
 Now the rebase process has finished, take a look at the commit history of branch `feature`:
 
