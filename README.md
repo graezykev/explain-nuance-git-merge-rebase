@@ -1,10 +1,12 @@
 # A Nuance of Git Merge and Rebase
 
-In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
-
 ## Introduction
 
-I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it. And I notice that some teams even simply and crudely forbid rebase in their project.
+I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it.
+
+And I also notice that some teams even simply and crudely forbid rebase in their project.
+
+In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
 
 ## Table of Contents
 
@@ -22,9 +24,9 @@ I've seen lots of developers are prone to **avoid using rebase**, considering th
 - [Option 2: Rebase feature onto main](#option-2-rebase-feature-onto-main)
   - [Graph After Rebase](#graph-after-rebase)
 - [Recap](#recap)
-- [Conclusion: Nuance](#conclusion-nuance)
+- [Key Takeaways: Merge or Rebase?](#key-takeaways-merge-or-rebase)
 
-I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [conclusion](#conclusion-nuance).
+I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [Key Takeaways](#key-takeaways-merge-or-rebase).
 
 ## Scenario Setup
 
@@ -756,13 +758,13 @@ A---B---C [main]
 </tbody>
 </table>
 
-The difference is that there are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
-
-The **Merge** option preserves the exact history of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
-
-The **Rebase** option rewrites the commit history to make it look as if you've created your changes on top of the latest remote commits. This can make the commit history cleaner and linear but can be confusing because it alters commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
+The obvious difference is that there are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
 
 ### Git Rebase can be Dangerous
+
+**Merge** preserves the exact historical sequence of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
+
+By contrast, **Rebase** rewrites the commit history to make it look as if you've created your changes on top of the latest remote commits. This can make the commit history cleaner and linear but can be confusing because it alters commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
 
 This is typical evidence of **why Git Rebase can be Dangerous**:
 
@@ -770,10 +772,12 @@ In a more complicated, more real-world scenario, there are risks that you can re
 
 There are some basic principles in using rebase like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
 
-Choosing between merge and rebase based on your project’s need is a very broad topic which is not within my topic scope in this post, I found a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
+> Choosing between merge and rebase based on your project’s need is a very broad topic which is not within my topic scope in this post, I found a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
 
-## Conclusion: Nuance
+## Key Takeaways: Merge or Rebase?
+
+Both strategies have their merits:
 
 - `Merge`: You need to make a **new commit** indicating how you solved the conflicts, from which your teammates can straightforwardly see how you did that.
 
-- `Rebase`: You **modify the existent commit**, if you are resolving conflicts, in this modified commit you may modify the codes or commit messages that others had made before.
+- `Rebase`: You **modify the existent commit**, if you are resolving conflicts, in this modified commit you may modify the codes or commit messages that others had made before. I can disrupt collaborative work if not used carefully.
