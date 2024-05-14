@@ -8,12 +8,15 @@ And I also notice that some teams even simply and crudely forbid rebase in their
 
 In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
 
+I may be too verbose walking you through these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [Key Takeaways](#key-takeaways-merge-or-rebase).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Scenario Setup](#scenario-setup)
   - [Initialise a Git Repository and Create a Starting File](#initialise-a-git-repository-and-create-a-starting-file)
   - [Make Initial Commits A and B](#make-initial-commits-a-and-b)
+  - [Bseline Commit Graph](#bseline-commit-graph)
   - [Create a Feature Branch](#create-a-feature-branch)
   - [Commit C](#commit-c)
   - [Commit D (Developing on Feature Branch)](#commit-d-developing-on-feature-branch)
@@ -25,8 +28,6 @@ In this guide, we will walk through the basics of managing code changes in Git u
   - [Graph After Rebase](#graph-after-rebase)
 - [Recap](#recap)
 - [Key Takeaways: Merge or Rebase?](#key-takeaways-merge-or-rebase)
-
-I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [Key Takeaways](#key-takeaways-merge-or-rebase).
 
 ## Scenario Setup
 
