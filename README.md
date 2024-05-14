@@ -761,9 +761,9 @@ The **Rebase** option rewrites the commit history to make it look as if you've c
 
 This is typical evidence of **why Git Rebase can be Dangerous**:
 
-In a more complicated, more real-world senario, there're risks that you can rewrite/overwrite/delete another developer's commit from the history, meaning your teammates may not be able to find their previously made commit(s).
+In a more complicated, more real-world scenario, there are risks that you can rewrite/overwrite/delete another developer's commit from the history, meaning your teammates may not be able to find their previously made commit(s).
 
-There are some basic princeples in using rebase like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
+There are some basic principles in using rebase like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
 
 Choosing between merge and rebase based on your project’s need is a very broad topic which is not within my topic scope in this post, I found a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
 
