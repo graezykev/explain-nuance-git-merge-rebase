@@ -6,13 +6,27 @@ Explore the intricate dance between merging and rebasing in Git, and clarify the
 
 I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it. And I notice that some teams even simply and crudely forbid rebase in their project.
 
-I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [conclusion](#conclusion-nuance).
-
 ## Table of Contents
+
+- [Introduction](#introduction)
+- [Scenario Setup](#scenario-setup)
+  - [Initialise a Git Repository and Create a Starting File](#initialise-a-git-repository-and-create-a-starting-file)
+  - [Make Initial Commits A and B](#make-initial-commits-a-and-b)
+  - [Create a Feature Branch](#create-a-feature-branch)
+  - [Commit C](#commit-c)
+  - [Commit D (Developing on Feature Branch)](#commit-d-developing-on-feature-branch)
+- [Initial Git Commit Graph](#initial-git-commit-graph)
+- [Decision Time: Merging vs. Rebasing](#decision-time-merging-vs-rebasing)
+- [Option 1: Merge feature into main](#option-1-merge-feature-into-main)
+- [Option 2: Rebase feature onto main](#option-2-rebase-feature-onto-main)
+- [Recap](#recap)
+- [Conclusion: Nuance](#conclusion-nuance)
+
+I may be too verbose to list these steps one by one, but I suggest you start from the [Recap](#recap) part, or jump straight to the [conclusion](#conclusion-nuance).
 
 ## Scenario Setup
 
-### Initialise a Git Repository & Create a Starting File
+### Initialise a Git Repository and Create a Starting File
 
 Initiate a Git repository, as well as a `main` branch.
 
