@@ -23,8 +23,12 @@ I may be too verbose walking you through these steps one by one, but I suggest y
 - [Initial Git Commit Graph](#initial-git-commit-graph)
 - [Decision Time: Merging vs. Rebasing](#decision-time-merging-vs-rebasing)
 - [Option 1: Merge feature into main](#option-1-merge-feature-into-main)
+  - [Merge](#merge)
+  - [Merge Conflict](#merge-conflict)
   - [Graph After Merge](#graph-after-merge)
 - [Option 2: Rebase feature onto main](#option-2-rebase-feature-onto-main)
+  - [Rebase](#rebase)
+  - [Rebase Conflict](#rebase-conflict)
   - [Graph After Rebase](#graph-after-rebase)
 - [Recap](#recap)
 - [Key Takeaways: Merge or Rebase?](#key-takeaways-merge-or-rebase)
@@ -210,6 +214,8 @@ Next, we're going to simulate making the 2 options respectively, and find out wh
 
 ## Option 1: Merge `feature` into `main`
 
+### Merge
+
 Merging results in a new commit on `main` that combines the changes from both branches:
 
 ```sh
@@ -225,6 +231,8 @@ git merge feature
 ```
 
 <img alt="merge feature into main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c.gif" width="600" />
+
+### Merge Conflict
 
 This approach creates a merge conflict that Kev resolves by favoring his changes:
 
@@ -367,6 +375,8 @@ index a53a0e2..d49a266 100644
 
 The commit ID and changes are going to be changed after the rebase, we'll see why.
 
+### Rebase
+
 Now let's start the **Rebase** process.
 
 Alternatively to **option 1**, rebasing involves integrating the changes from `main` directly into the `feature` branch history.
@@ -384,6 +394,8 @@ git rebase main
 ```
 
 <img alt="rebase feature onto main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c.gif" width="600"/>
+
+### Rebase Conflict
 
 It creates a merge conflict that is almost identical to **option 1**:
 
