@@ -29,6 +29,8 @@ I may be too verbose in walking you through these steps one by one, but I sugges
   - [Rebase Conflict](#rebase-conflict)
   - [Graph After Rebase](#graph-after-rebase)
 - [Recap](#recap)
+  - [Commit History](#commit-history)
+  - [Commit Graph of Taking Each Option](#commit-graph-of-taking-each-option)
 - [Key Takeaways: Merge or Rebase?](#key-takeaways-merge-or-rebase)
 
 ## Scenario Setup
@@ -733,7 +735,7 @@ Dash
 > - Option 1: [Merge](https://github.com/graezykev/git-nuance-demo-merge/commits/main/)
 > - Option 2: [Rebase](https://github.com/graezykev/git-nuance-demo-rebase/commits/feature)
 
-### Commit Graph After each Option
+### Commit Graph of Taking Each Option
 
 <table>
 <thead>
