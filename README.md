@@ -119,7 +119,7 @@ A---B---C [main]
       D [feature]
 ```
 
-And their history details:
+And their check history details out by running `git log main` adn `git log feature`:
 
 - `main`
 
@@ -156,7 +156,7 @@ Author: Leader <leader@test.com>
 ```console
 /workspaces/git-nuance-demo-merge (main) $ git log feature
 
-commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (origin/feature, feature)
+commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (HEAD -> feature)
 Author: Kev <kev@test.com>
 
     D
@@ -235,23 +235,67 @@ Let's do it by "Accept Incoming Change", which in this case means accepting bran
 
 <img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
-If you check by running `git log main` you'll notice a **new** commit (**Merge commit**) in the Git logs saying "Merge branch...":
+If you check out the log by running `git log main` you'll notice a **new** commit (**Merge commit**) in the Git logs saying "Merge branch...":
 
+<!--
 <img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-7.png" width="500" />
+-->
 
-The change of the new commit:
+```console
+/workspaces/git-nuance-demo-merge (main) $ git log main
+
+commit 4d6ac5eb811be1a6130c6bbcde215946c618dd95 (HEAD -> main)
+Merge: ac466be 58beb1e
+Author: Kev <kev@test.com>
+
+    Merge branch 'feature'
+
+commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (feature)
+Author: Kev <kev@test.com>
+
+    D
+
+commit ac466bea2d13762608660e27798ba08b840529db
+Author: Dash <dash@test.com>
+
+    C
+
+commit fd6ecc11625c41c06e150015254b16a620c1cd44
+Author: Leader <leader@test.com>
+
+    B
+
+commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
+Author: Leader <leader@test.com>
+
+    A
+```
+
+Want to know what are the changes of the change of the new commit?
+
+Run `git diff 4d6ac5e~ 4d6ac5e` (4d6ac5e is the commit ID(hash) of the commit)
 
 <!--
 <img alt="change of merge commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-8.png" width="500" />
 -->
 
 ```diff
-Initial content
+/workspaces/git-nuance-demo-merge (main) $ git diff 4d6ac5e~ 4d6ac5e
+diff --git a/example.txt b/example.txt
+index 22ad65d..d49a266 100644
+--- a/example.txt
++++ b/example.txt
+@@ -1,2 +1,2 @@
+ Initial content
 -Modified by Dash
 +Modified by Kev
 ```
 
-If you take a deeper look at the new commit, it has 2 "**parents**", pointing to commit `C` and commit `D`
+If you take a deeper look at the information of the new commit, pay attention to the line:
+
+**Merge: ac466be 58beb1e**
+
+This commit (**Merge** commit) has 2 "**parents**", pointing to commit `C` and commit `D`
 
 <img alt="merge commit parents" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-10.png" width="500" />
 
@@ -263,7 +307,7 @@ A---B---C---M [main]
       D [feature]
 ```
 
-> `M` represents the new (Merge) commit (after fixing the conflict).
+> `M` represents the new (**Merge**) commit (after fixing the conflict).
 
 ## Option 2: Rebase `feature` onto `main`
 
@@ -273,7 +317,29 @@ cd git-nuance-demo-rebase
 
 Before continuing the rebase process, take a look at branch `feature`'s logs at this point.
 
+<!--
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
+-->
+
+```console
+/workspaces/git-nuance-demo-merge (main) $ git log feature
+
+commit 58beb1e4f1d47f9bf1364be906a2e22b5280be1d (Head -> feature)
+Author: Kev <kev@test.com>
+
+    D
+
+commit fd6ecc11625c41c06e150015254b16a620c1cd44
+Author: Leader <leader@test.com>
+
+    B
+
+commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
+Author: Leader <leader@test.com>
+
+    A
+
+```
 
 The commit `D`'s commit ID (hash) is `58beb1e...`.
 
@@ -284,7 +350,13 @@ And the changes in this commit is:
 -->
 
 ```diff
-Initial content
+/workspaces/git-nuance-demo-merge (main) $ git diff 58beb1e~ 58beb1e
+diff --git a/example.txt b/example.txt
+index a53a0e2..d49a266 100644
+--- a/example.txt
++++ b/example.txt
+@@ -1,2 +1,2 @@
+ Initial content
 -Added by leader
 +Modified by Kev
 ```
@@ -363,6 +435,30 @@ I made no change and just close the commit editor, the rebase process was contin
 
 Now the rebase has finished, take a look at the commit history of branch `feature`.
 
+```console
+/workspaces/git-nuance-demo-rebase (feature) $ git log feature
+
+commit 047c3480da20d9dd6c530d3698b4e047f1f1d9d9 (HEAD -> feature)
+Author: Kev <kev@test.com>
+
+    D
+
+commit ac466bea2d13762608660e27798ba08b840529db (main)
+Author: Dash <dash@test.com>
+
+    C
+
+commit fd6ecc11625c41c06e150015254b16a620c1cd44
+Author: Leader <leader@test.com>
+
+    B
+
+commit 9d00689a138f8d1fd6b7d370bae29bcfb27fec19
+Author: Leader <leader@test.com>
+
+    A
+```
+
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
 
 Pay special attention to the commit ID of `D` (new `D`).
@@ -376,7 +472,13 @@ And the changes of this commit.
 -->
 
 ```diff
-Initial content
+/workspaces/git-nuance-demo-rebase (feature) $ git diff 047c348~ 047c348
+diff --git a/example.txt b/example.txt
+index 22ad65d..d49a266 100644
+--- a/example.txt
++++ b/example.txt
+@@ -1,2 +1,2 @@
+ Initial content
 -Modified by Dash
 +Modified by Kev
 ```
