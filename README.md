@@ -500,11 +500,6 @@ In this case, we made a "**History Rewrite**", after which the commit `D` disapp
 
 Now let's recap the primary steps and Git histories in both options we made.
 
-> You can also see the histories in my demo repositories:
->
-> - Option 1: [Merge](https://github.com/graezykev/git-nuance-demo-merge/commits/main/)
-> - Option 2: [Rebase](https://github.com/graezykev/git-nuance-demo-rebase/commits/feature)
-
 <table>
   <thead>
     <tr>
@@ -712,6 +707,11 @@ Dash
 
   </tbody>
 </table>
+
+> You can also see the histories in my demo repositories:
+>
+> - Option 1: [Merge](https://github.com/graezykev/git-nuance-demo-merge/commits/main/)
+> - Option 2: [Rebase](https://github.com/graezykev/git-nuance-demo-rebase/commits/feature)
 
 ### Commit Graph After each Option
 
