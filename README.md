@@ -4,7 +4,7 @@
 
 I've seen lots of developers are prone to **avoid using rebase**, considering the complexity of it.
 
-And I also notice that some teams even simply and crudely forbid rebase in their project.
+And I also noticed that some teams even simply and crudely forbid rebase in their project.
 
 In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
 
@@ -37,7 +37,7 @@ I may be too verbose walking you through these steps one by one, but I suggest y
 
 ### Initialise a Git Repository and Create a Starting File
 
-First, create a new directory and initialize a Git repository:
+First, create a new directory and initialise a Git repository:
 
 ```sh
 mkdir git-nuance-demo-merge && \
@@ -142,6 +142,8 @@ A---B---C [main]
 
 And their check history details out by running `git log main` and `git log feature`:
 
+> The commit IDs (hash) will be different on your device.
+
 - `main`
 
 <!--
@@ -234,7 +236,7 @@ git merge feature
 
 ### Merge Conflict
 
-This approach creates a merge conflict that Kev resolves by favoring his changes:
+This approach creates a merge conflict that Kev resolves by favouring his changes:
 
 ```txt
 Initial content
@@ -258,7 +260,7 @@ Check this one out: "**fix conflicts and then commit the result**"
 
 It tells us to both **Fix** and **Commit** so that the conflicts can be resolved, which means, a new commit is needed when resolving merge conflicts.
 
-Let's do it by "Accept Incoming Change", which in this case means accepting branch `feature`'s change.
+Resolve it by "**Accept Incoming Change**", which in this case means accepting branch `feature`'s change.
 
 <img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
@@ -295,7 +297,7 @@ Author: Leader <leader@test.com>
 ...
 ```
 
-Want to know what the changes are in this this new commit?
+Wondering what the change is in this new commit?
 
 Run `git diff 4d6ac5e~ 4d6ac5e` (4d6ac5e is the commit ID (hash))
 
@@ -373,7 +375,7 @@ index a53a0e2..d49a266 100644
 +Modified by Kev
 ```
 
-The commit ID and changes are going to be changed after the rebase, we'll see why.
+The commit ID and change are going to be changed after the rebase, we'll see why.
 
 ### Rebase
 
@@ -456,7 +458,7 @@ Here Git offers me an editor to edit the commit message of `D`.
 
 You can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
 
-I made no change and just close the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
+I made no change and just closed the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
 
 Now the rebase process has finished, take a look at the commit history of branch `feature`:
 
@@ -482,7 +484,7 @@ Pay special attention to the commit ID of `D` (new `D`).
 
 It's now `047c348...`, remember what was it before the rebase? It was `58beb1e...`.
 
-And the changes of this commit is:
+And the change of this commit is:
 
 <!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
