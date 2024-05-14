@@ -1,6 +1,6 @@
 # A Nuance of Git Merge and Rebase
 
-Explore the intricate dance between merging and rebasing in Git, and clarify these often misunderstood commands with a hands-on demonstration.
+In this guide, we will walk through the basics of managing code changes in Git using both merge and rebase strategies. This tutorial aims to clarify these often misunderstood commands with a hands-on demonstration.
 
 ## Introduction
 
@@ -30,7 +30,7 @@ I may be too verbose to list these steps one by one, but I suggest you start fro
 
 ### Initialise a Git Repository and Create a Starting File
 
-Initiate a Git repository, as well as a `main` branch.
+First, create a new directory and initialize a Git repository:
 
 ```sh
 mkdir git-nuance-demo-merge && \
@@ -39,13 +39,15 @@ git init && \
 git branch -M main
 ```
 
+Next, create a text file named `example.txt`:
+
  ```sh
 touch example.txt
  ```
 
 ### Make Initial Commits `A` and `B`
 
-Input a first line into `example.txt`
+Now, add a first line to `example.txt` and commit it as Commit `A`:
 
 ```diff
 +Initial content
@@ -55,9 +57,7 @@ Input a first line into `example.txt`
 <img alt="" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-1.png" width="500" />
 -->
 
-And then make a commit of 'A'.
-
-Input a second line into `example.txt`
+Proceed by adding a second line and commit it as Commit `B`:
 
 ```diff
 Initial content
@@ -68,19 +68,19 @@ Initial content
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-2.png" width="500" />
 -->
 
-And then make a commit of 'B'.
-
 ### Bseline Commit Graph
 
-Here's the commit graph by far, imagine it as the project **baseline**.
+The commit graph now looks like this:
 
 ```css
 A---B [main]
 ```
 
+Imagine it as the project **baseline**.
+
 ### Create a Feature Branch
 
-Let's say one of the developers Kev needs to develop a new feature, he creates a new branch `feature` based on `main`.
+Assuming developer Kev needs to add a new feature, he branches off from `main`:
 
 ```sh
 git checkout main && \
@@ -89,13 +89,11 @@ git checkout -b feature
 
 ### Commit `C`
 
-During Kev's development, another developer Dash edited branch `main` first, with a commit `C` (maybe by merging his own feature).
+While Kev works on the feature branch, another developer, Dash, updates the `main` branch. Dash modifies the **second** line in Commit `C`:
 
 ```sh
 git checkout main
 ```
-
-In this commit `C` he **modified the second line**.
 
 ```diff
 Initial content
@@ -109,7 +107,7 @@ Initial content
 
 ### Commit `D` (Developing on Feature Branch)
 
-Return to Kev's branch `feature`, he also makes some changes to the **second line**.
+Simultaneously, Kev modifies the **same** line on his branch in Commit `D`:
 
 ```sh
 git checkout feature
@@ -125,11 +123,9 @@ Initial content
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image.png" width="500" />
 -->
 
-And he makes a commit as `D`.
-
 ## Initial Git Commit Graph
 
-Simply put Kev's and Dash's commits above into a commit graph.
+The commit graph is now:
 
 ```css
 A---B---C [main]
@@ -193,16 +189,16 @@ Author: Leader <leader@test.com>
 
 ## Decision Time: Merging vs. Rebasing
 
-Imagine Kev needs to release the features in branch `feature`, he has 2 options:
+Imagine Kev needs to release the features in branch `feature`, he faces a decision: to merge or rebase his feature branch onto the updated main branch.:
 
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release `feature`.
 
-We all know right now Kev and Dash both edited line 2, meaning a **conflict** is definitely going to happen in both options.
+We all know right now Kev and Dash both edited the **second** line, meaning a **conflict** is definitely going to happen in both options.
 
 Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
 
-> Before continuing, copy the initial status into 2 copies.
+> Before continuing, copy the **initial status** into 2 copied folders.
 >
 > ```sh
 > cd .. && \
@@ -210,6 +206,8 @@ Next, we're going to simulate making the 2 options respectively, and find out wh
 >  ```
 
 ## Option 1: Merge `feature` into `main`
+
+Merging results in a new commit on `main` that combines the changes from both branches:
 
 ```sh
 cd git-nuance-demo-merge
@@ -225,7 +223,7 @@ git merge feature
 
 <img alt="merge feature into main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c.gif" width="600" />
 
-Here's the conflict (in line 2).
+This approach creates a merge conflict that Kev resolves by favoring his changes:
 
 ```txt
 Initial content
@@ -236,7 +234,7 @@ Modified by Kev
 >>>>>>> feature
 ```
 
-And take notes on the terminal console:
+We need to take notes on the terminal console:
 
 ```console
 /workspaces/git-nuance-demo-merge (main) $ git merge feature
@@ -318,6 +316,8 @@ This **Merge** commit has 2 "**parents**", pointing to commit `C` and commit `D`
 
 ### Graph After Merge
 
+After resolving the conflict, the commit graph looks like:
+
 ```css
 A---B---C---M [main]
      \       /
@@ -325,10 +325,6 @@ A---B---C---M [main]
 ```
 
 ## Option 2: Rebase `feature` onto `main`
-
-```sh
-cd git-nuance-demo-rebase
-```
 
 Before continuing the rebase process, take a look at branch `feature`'s logs at this point.
 
@@ -368,15 +364,17 @@ index a53a0e2..d49a266 100644
 
 The commit ID and changes are going to be changed after the rebase, we'll see why.
 
-Now let's start the **Rebase**.
+Now let's start the **Rebase** process.
 
-Go to branch `feature`.
+Alternatively to **option 1**, rebasing involves integrating the changes from `main` directly into the `feature` branch history.
+
+```sh
+cd git-nuance-demo-rebase
+```
 
 ```sh
 git checkout feature
 ```
-
-Rebase it onto `main`.
 
 ```sh
 git rebase main
@@ -384,7 +382,7 @@ git rebase main
 
 <img alt="rebase feature onto main" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c.gif" width="600"/>
 
-Here's the conflict (also in line 2)
+It creates a merge conflict that is almost identical to **option 1**:
 
 ```txt
 Initial content
@@ -395,7 +393,7 @@ Modified by Kev
 >>>>>>> 58beb1e (D)
 ```
 
-The conflict looks **identical** to what we did in the last option (Merge) doesn't it? But the terminal console is different.
+But what's in the terminal console is different:
 
 ```console
 /workspaces/git-nuance-demo-rebase (feature) $ git rebase main
@@ -409,13 +407,18 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 Could not apply 58beb1e... D
 ```
 
-It tells us to **Resolve all conflicts manually**, and continue with `git rebase --continue`.
+It tells us to "**Resolve all conflicts manually**", and continue with `git rebase --continue`.
 
-OK let's follow the guide to resolve the conflict (also by "Accept Incoming Change").
+OK let's follow the hint to resolve the conflict (also by "Accept Incoming Change").
+
+```sh
+git add example.txt && \
+git rebase --continue
+```
 
 <img alt="fix git rebase conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c-2.gif" width="600"/>
 
-Take some insight into the content after I run `git rebase --continue`.
+Take some insight into the content after I run `git rebase --continue`:
 
 ```txt
 D
@@ -434,11 +437,13 @@ D
 #
 ```
 
-Here Git offers me an editor to edit the commit message of `D`, you can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
+Here Git offers me an editor to edit the commit message of `D`.
+
+You can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
 
 I made no change and just close the commit editor, the rebase process was continued with the "**rewritten**" of commit `D`.
 
-Now the rebase has finished, take a look at the commit history of branch `feature`.
+Now the rebase process has finished, take a look at the commit history of branch `feature`:
 
 ```console
 /workspaces/git-nuance-demo-rebase (feature) $ git log feature
@@ -462,7 +467,7 @@ Pay special attention to the commit ID of `D` (new `D`).
 
 It's now `047c348...`, remember what was it before the rebase? It was `58beb1e...`.
 
-And the changes of this commit.
+And the changes of this commit is:
 
 <!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
@@ -480,11 +485,11 @@ index 22ad65d..d49a266 100644
 +Modified by Kev
 ```
 
-See? The changes are also different to the previous commit `D`, because the commit `D` was **rewritten** in the rebase process.
-
-> Actually the commit message could also have been modified as well, in the commit editor we saw after ``git rebase --continue`.
+See? The change is also different to the previous commit `D`, because the commit `D` was **rewritten** in the rebase process.
 
 ### Graph After Rebase
+
+Rebase modifies the original commit `D` on the feature branch:
 
 ```css
 A---B---C [main]
@@ -751,7 +756,7 @@ A---B---C [main]
 </tbody>
 </table>
 
-There are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
+The difference is that there are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
 
 The **Merge** option preserves the exact history of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
 
