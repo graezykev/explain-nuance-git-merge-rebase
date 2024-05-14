@@ -140,9 +140,9 @@ A---B---C [main]
       D [feature]
 ```
 
-And their check history details out by running `git log main` and `git log feature`:
+And check their Git history details by running git log main and git log feature:
 
-> The commit IDs (hash) will be different on your device.
+> The commit IDs (hashes) will be different on your device.
 
 - `main`
 
@@ -203,11 +203,11 @@ Imagine Kev needs to release the features in branch `feature`, he faces a decisi
 - `Merge`: merge `feature` into `main` and release `main` to production environment.
 - `Rebase`: Rebase `feature` onto `main`, and release `feature`.
 
-We all know right now Kev and Dash both edited the **second** line, meaning a **conflict** is definitely going to happen in both options.
+We all know that Kev and Dash both edited the **second** line, meaning a **conflict** is definitely going to happen in both options.
 
-Next, we're going to simulate making the 2 options respectively, and find out what are the different consequences of them.
+Next, we're going to apply both options and examine the different consequences of each.
 
-> Before continuing, copy the **initial status** into 2 copied folders.
+> Before continuing, copy the initial status into two separate folders so that we can apply each option in its own folder:
 >
 > ```sh
 > cd .. && \
@@ -247,7 +247,7 @@ Modified by Kev
 >>>>>>> feature
 ```
 
-We need to take notes on the terminal console:
+Pay attention to the terminal console:
 
 ```console
 /workspaces/git-nuance-demo-merge (main) $ git merge feature
@@ -256,15 +256,15 @@ CONFLICT (content): Merge conflict in example.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Check this one out: "**fix conflicts and then commit the result**"
+Check this out: "**fix conflicts and then commit the result**"
 
-It tells us to both **Fix** and **Commit** so that the conflicts can be resolved, which means, a new commit is needed when resolving merge conflicts.
+It instructs us to both **fix** and **commit** so that the conflicts can be resolved. This means a **new commit** is needed when resolving merge conflicts.
 
-Resolve it by "**Accept Incoming Change**", which in this case means accepting branch `feature`'s change.
+Resolve it by selecting "**Accept Incoming Change**", which in this case means accepting the changes from the `feature` branch.
 
 <img alt="fix git merge conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/merge-c-2.gif" width="600" />
 
-If you check out the log by running `git log main` you'll notice the **new** commit (**Merge** commit) in the logs saying "Merge branch...":
+If you check the log by running `git log main`, you'll notice the new merge commit in the logs saying "**Merge branch..**.":
 
 <!--
 <img alt="merge" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-7.png" width="500" />
@@ -317,13 +317,13 @@ index 22ad65d..d49a266 100644
 +Modified by Kev
 ```
 
-If you take a deeper look at the information of this new commit, pay attention to the line:
+If you take a deeper look at the details of this new commit, pay special attention to the line:
 
 **Merge: `ac466be` `58beb1e`**
 
 What does it mean?
 
-This **Merge** commit has 2 "**parents**", pointing to commit `C` and commit `D`
+This **merge** commit has two **parents**, pointing to commit `C` and commit `D`:
 
 <img alt="merge commit parents" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-10.png" width="500" />
 
@@ -339,7 +339,7 @@ A---B---C---M [main]
 
 ## Option 2: Rebase `feature` onto `main`
 
-Before continuing the rebase process, take a look at branch `feature`'s logs at this point.
+Before continuing with the rebase process, take a look at the `feature` branch's logs at this point:
 
 <!--
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-6.png" width="500" />
@@ -355,9 +355,9 @@ Author: Kev <kev@test.com>
 ...
 ```
 
-The commit `D`'s commit ID (hash) is `58beb1e...`.
+The commit `D`'s ID (hash) is `58beb1e....`
 
-And the change in this commit is:
+The change in this commit is:
 
 <!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-13.png" width="500" />
@@ -375,11 +375,11 @@ index a53a0e2..d49a266 100644
 +Modified by Kev
 ```
 
-The commit ID and change are going to be changed after the rebase, we'll see why.
+The commit ID and changes will be altered after the rebase; we'll see why.
 
 ### Rebase
 
-Now let's start the **Rebase** process.
+Let's now start the **rebase** process.
 
 Alternatively to **option 1**, rebasing involves integrating the changes from `main` directly into the `feature` branch history.
 
@@ -399,7 +399,7 @@ git rebase main
 
 ### Rebase Conflict
 
-It creates a merge conflict that is almost identical to **option 1**:
+It creates a merge conflict that is almost identical to the one in **option 1**:
 
 ```txt
 Initial content
@@ -424,9 +424,9 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 Could not apply 58beb1e... D
 ```
 
-It tells us to "**Resolve all conflicts manually**", and continue with `git rebase --continue`.
+It instructs us to "**Resolve all conflicts manually**", and continue with `git rebase --continue`.
 
-OK let's follow the hint to resolve the conflict (also by "Accept Incoming Change").
+Alright, let's follow the hint to resolve the conflict (also by selecting "Accept Incoming Change").
 
 ```sh
 git add example.txt && \
@@ -435,7 +435,7 @@ git rebase --continue
 
 <img alt="fix git rebase conflict and commit" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/rebase-c-2.gif" width="600"/>
 
-Take some insight into the content after I run `git rebase --continue`:
+Take a look at the content after running `git rebase --continue`:
 
 ```txt
 D
@@ -454,13 +454,13 @@ D
 #
 ```
 
-Here Git offers me an editor to edit the commit message of `D`.
+Git offers us an editor to edit the commit message of `D`.
 
-You can rewrite the commit `D` by editing the message (lines starting with `#` will be ignored).
+You can rewrite commit `D` by editing the message (lines starting with "#" will be ignored).
 
-I made no change and just closed the commit editor, the rebase process was proceeded with the "**rewritten**" of commit `D`.
+I made no changes and just closed the commit editor, so the rebase process proceeded with the **rewriting** of commit `D`.
 
-Now the rebase process has finished, take a look at the commit history of branch `feature`:
+Now that the rebase process has finished, take a look at the commit history of the `feature` branch:
 
 ```console
 /workspaces/git-nuance-demo-rebase (feature) $ git log feature
@@ -480,11 +480,11 @@ Author: Dash <dash@test.com>
 
 <img alt="Git Logs" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-11.png" width="500" />
 
-Pay special attention to the commit ID of `D` (new `D`).
+Pay special attention to the commit ID of the **new** `D`.
 
-It's now `047c348...`, remember what was it before the rebase? It was `58beb1e...`.
+It's now `047c348...`. Remember what it was before the rebase? It was `58beb1e...`.
 
-And the change of this commit is:
+And the change in this commit is:
 
 <!--
 <img alt="change" src="https://raw.githubusercontent.com/graezykev/git-nuance-merge-rebase/main/image-9.png" width="500" />
@@ -502,7 +502,7 @@ index 22ad65d..d49a266 100644
 +Modified by Kev
 ```
 
-See? The change is also different to the previous commit `D`, because the commit `D` was **rewritten** in the rebase process.
+See? The change is also different from the previous commit `D` because the commit `D` was **rewritten** in the rebase process.
 
 ### Graph After Rebase
 
@@ -514,13 +514,13 @@ A---B---C [main]
           D' [feature]
 ```
 
-In this case, we made a "**History Rewrite**", after which the commit `D` disappears and the new commit `D'` comes out.
+In this case, we performed a **history rewrite**, causing the original commit `D` to disappear and the new commit `D'` to emerge.
 
 ## Recap
 
 ### Commit History
 
-Now let's recap the primary steps and Git histories in both options we made.
+Now let's recap the primary steps and Git histories in both options we covered.
 
 <table>
   <thead>
@@ -730,7 +730,7 @@ Dash
   </tbody>
 </table>
 
-> You can also see the histories in my demo repositories:
+> You can also view the histories in my demo repositories:
 >
 > - Option 1: [Merge](https://github.com/graezykev/git-nuance-demo-merge/commits/main/)
 > - Option 2: [Rebase](https://github.com/graezykev/git-nuance-demo-rebase/commits/feature)
@@ -773,26 +773,30 @@ A---B---C [main]
 </tbody>
 </table>
 
-The obvious difference is that there are `5` commits (`A-B-C-D-M`) after "**Merge**", and `4` (`A-B-C-D'`) after "**Rebase**" (`D` disappeared because of rewritten).
+The obvious difference is that there are **five** commits (`A-B-C-D-M`) after a **merge**, and **four** (`A-B-C-D'`) after a **rebase** (D disappears because it is rewritten).
 
 ### Git Rebase can be Dangerous
 
 **Merge** preserves the exact historical sequence of changes and is generally easier for beginners to understand and handle, especially in a collaborative environment.
 
-By contrast, **Rebase** rewrites the commit history to make it look as if you've created your changes on top of the latest remote commits. This can make the commit history cleaner and linear but can be confusing because it alters commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
+In contrast, **Rebase** rewrites the commit history to make it appear as if your changes were created on top of the latest remote commits.
 
-This is typical evidence of **why Git Rebase can be Dangerous**:
+This can result in a cleaner, more linear commit history but can be confusing because it alters the commit history. This might be trickier in a collaborative project unless all contributors are comfortable with Git.
 
-In a more complicated, more real-world scenario, there are risks that you can rewrite/overwrite/delete another developer's commit from the history, meaning your teammates may not be able to find their previously made commit(s).
+This is typical evidence of why **Git rebase can be dangerous**:
+
+In more complex, real-world scenarios, there is a risk that you could rewrite, overwrite, or delete another developer's commit from the history, preventing your teammates from finding their previously made commits.
 
 There are some basic principles in using rebase like "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**" etc.
 
-> Choosing between merge and rebase based on your project’s need is a very broad topic which is not comprehensively covered within my topic scope in this post, I found a better learning material for your information: [Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion).
+There are some basic principles for using rebase, such as "**Don’t rebase a branch that’s been published remotely**" and "**Create a backup branch from the tip of the branch you’re about to rebase**".
+
+Choosing between merge and rebase based on your project's needs is a broad topic that is not comprehensively covered within the scope of this post. For more detailed information, I recommend reading "[Differences Between Git Merge and Rebase — and Why You Should Care](https://blog.git-init.com/differences-between-git-merge-and-rebase-and-why-you-should-care/#conclusion)".
 
 ## Key Takeaways: Merge or Rebase?
 
 Both strategies have their merits:
 
-- `Merge`: You need to make a **new commit** indicating how you solved the conflicts, from which your teammates can straightforwardly see how you did that.
+- `Merge`: You create a **new commit** that shows how conflicts were resolved, allowing your teammates to clearly see the resolution process.
 
-- `Rebase`: You **modify the existent commit**, if you are resolving conflicts, in this modified commit you may modify the codes or commit messages that others had made before. I can disrupt collaborative work if not used carefully.
+- `Rebase`: You **modify existing commits**. When resolving conflicts during a rebase, you may alter code or commit messages that others have previously made. This can disrupt collaborative work if not used carefully.
